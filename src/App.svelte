@@ -1,8 +1,9 @@
 <script lang="ts">
+    import { Router, Route } from "svelte-routing";
     import Navbar from "./lib/Navbar.svelte";
     import Login from "./pages/+Login.svelte";
     import Home from "./pages/Home.svelte";
-    import { Router, Route } from "svelte-routing";
+    import Register from "./pages/+Register.svelte";
     export let isLoggedIn: Boolean = false;
 </script>
 
@@ -15,6 +16,9 @@
                 <Route component={Home} />
                 <Route path="/login">
                     <Login />
+                </Route>
+                <Route path="/register">
+                    <Register />
                 </Route>
             </div>
         </div>
