@@ -1,6 +1,6 @@
 <script lang="ts">
     import Navbar from "./lib/Navbar.svelte";
-    import Login from "./pages/Login.svelte";
+    import Login from "./pages/+Login.svelte";
     import Home from "./pages/Home.svelte";
     import { Router, Route } from "svelte-routing";
     export let isLoggedIn: Boolean = false;
