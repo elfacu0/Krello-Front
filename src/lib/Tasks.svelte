@@ -1,5 +1,6 @@
 <script lang="ts">
     import type { ITask } from "../interfaces/ITask";
+    import CreateCollection from "./CreateCollection.svelte";
     import CreateTask from "./CreateTask.svelte";
     import Task from "./Task.svelte";
 
@@ -7,7 +8,10 @@
 </script>
 
 <div class="flex">
+    <div class="flex flex-col">
     <CreateTask />
+    <CreateCollection />
+</div>
     <div id="todo" class="card shadow-xl bg-base-200">
         <h2 class="text-center">TODO</h2>
         <ul

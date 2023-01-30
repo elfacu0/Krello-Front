@@ -5,6 +5,7 @@
     import Home from "./pages/Home.svelte";
     import Register from "./pages/Register.svelte";
     import Logout from "./pages/Logout.svelte";
+    import Settings from "./pages/Settings.svelte";
 
     let token = localStorage.getItem("leagueTable");
     let isLoggedIn: Boolean = token !== null;
@@ -32,6 +33,11 @@
             </Route>
             <Route path="/logout">
                 <Logout />
+            </Route>
+            <Route path="/settings">
+                <div class="container w-1/3 h-fit">
+                    <Settings />
+                </div>
             </Route>
         </div>
     </Router>

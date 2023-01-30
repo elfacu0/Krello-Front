@@ -8,6 +8,7 @@
         { id: 2, content: "AAA", status: "TODO" },
     ];
 
+    data = [];
     onMount(async () => {
         const token: string = localStorage.getItem("token");
         const response = await fetch("http://localhost:3000/users/tasks", {
