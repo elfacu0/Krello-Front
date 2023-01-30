@@ -19,7 +19,7 @@
             });
 
             const data = await response.json();
-            if (data.statusCode !== 201) {
+            if (data.statusCode && data.statusCode !== 201) {
                 error = data.message;
             } else {
                 success = "Task created successfully";

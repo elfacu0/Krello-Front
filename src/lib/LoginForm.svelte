@@ -13,16 +13,15 @@
         body: JSON.stringify({ username, password }),
       });
       const data = await response.json();
-      console.log(data);
-      
-      if(data.statusCode == 401){
+
+      if (data.statusCode && data.statusCode == 401) {
         error = data.message;
-      }else{
+      } else {
         localStorage.setItem("token", data.access_token);
         window.location.replace("/");
       }
-    } catch (error) {
-      console.log(error);
+    } catch (err) {
+      error = err;
     }
   };
 </script>

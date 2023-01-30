@@ -18,9 +18,8 @@
     console.log(JSON.stringify({ username, email, password, confirmPassword }));
 
     const data = await response.json();
-    console.log(data);
     
-    if (data.statusCode !== 201) {
+    if (data.statusCode && data.statusCode !== 201) {
       error = data.message;
     } else {
       window.location.replace("/");
