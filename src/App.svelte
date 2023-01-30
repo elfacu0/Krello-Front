@@ -8,9 +8,9 @@
     import Settings from "./pages/Settings.svelte";
 
     let token = localStorage.getItem("token");
-    let isLoggedIn: Boolean = token !== null;
+    let isLoggedIn: Boolean = (token !== "null");    
 
-    $: isLoggedIn = token !== null;
+    $: isLoggedIn = (token !== "null");    
 </script>
 
 <body class="h-screen">
