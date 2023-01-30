@@ -3,7 +3,10 @@
     import type { ITask } from "../interfaces/ITask";
 
     import Tasks from "../lib/Tasks.svelte";
-    let data: Array<ITask> = [{content:"AAA",status:"TODO"},{content:"AAA",status:"TODO"}];
+    let data: Array<ITask> = [
+        { id: 1, content: "AAA", status: "TODO" },
+        { id: 2, content: "AAA", status: "TODO" },
+    ];
 
     onMount(async () => {
         const token: string = localStorage.getItem("token");

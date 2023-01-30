@@ -9,7 +9,7 @@
     let token = localStorage.getItem("leagueTable");
     let isLoggedIn: Boolean = token !== null;
 
-    $: isLoggedIn = token !== null;    
+    $: isLoggedIn = token !== null;
 </script>
 
 <body class="h-screen">
@@ -31,7 +31,7 @@
                 </div>
             </Route>
             <Route path="/logout">
-                <Logout></Logout>
+                <Logout />
             </Route>
         </div>
     </Router>

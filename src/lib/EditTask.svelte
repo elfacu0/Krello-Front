@@ -2,7 +2,7 @@
     import type { ITask } from "../interfaces/ITask";
     import Input from "./Input.svelte";
     export let task: ITask;
-    let { content, status }: ITask = task;
+    let { id, content, status }: ITask = task;
     const token: string = localStorage.getItem("token");
 
     $: handleSubmit = async () => {
@@ -12,12 +12,12 @@
                 "Content-Type": "application/json",
                 Authorization: `Bearer ${token}`,
             },
-            body: JSON.stringify({ content, status }),
+            body: JSON.stringify({ id, content, status }),
         });
 
         const data = await response.json();
 
-        if (data.error === undefined) {
+        if (data.error === null) {
         }
     };
 </script>
