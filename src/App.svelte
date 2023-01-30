@@ -7,7 +7,7 @@
     import Logout from "./pages/Logout.svelte";
     import Settings from "./pages/Settings.svelte";
 
-    let token = localStorage.getItem("leagueTable");
+    let token = localStorage.getItem("token");
     let isLoggedIn: Boolean = token !== null;
 
     $: isLoggedIn = token !== null;

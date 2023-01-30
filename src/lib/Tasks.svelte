@@ -3,6 +3,7 @@
     import CreateCollection from "./CreateCollection.svelte";
     import CreateTask from "./CreateTask.svelte";
     import EditTask from "./EditTask.svelte";
+    import ImportCollection from "./ImportCollection.svelte";
     import Task from "./Task.svelte";
 
     export let data: Array<ITask>;
@@ -16,6 +17,7 @@
     <div class="flex flex-col">
         <CreateTask />
         <CreateCollection />
+        <ImportCollection />
     </div>
     <div id="todo" class="card shadow-xl bg-base-200">
         <h2 class="text-center">TODO</h2>

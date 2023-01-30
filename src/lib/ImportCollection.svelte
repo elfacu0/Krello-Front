@@ -1,7 +1,10 @@
 <script lang="ts">
+    import InputNumber from "./InputNumber.svelte";
+
     const token = localStorage.getItem("token");
     let error: string;
     let success: string;
+    let id: number = 1;
 
     if (token == null) {
         window.location.replace("/");
@@ -12,20 +15,21 @@
         success = "";
         try {
             const response = await fetch(
-                "http://localhost:3000/collections/export",
+                "http://localhost:3000/collections/import",
                 {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
                         Authorization: `Bearer ${token}`,
                     },
+                    body: JSON.stringify({ id }),
                 }
             );
             const data = await response.json();
-            if (data.statusCode && data.statusCode !== 201) {
+            if (data.statusCode && data.statusCode !== 200) {
                 error = data.message;
             } else {
-                success = "Collection created" + "\n ID = " + data.id;
+                success = "Collection Imported";
             }
         } catch (err) {
             error = err.message;
@@ -33,13 +37,11 @@
     };
 </script>
 
-<button on:click={handleSubmit}>
-    <label for="my-modal-7" class="btn">CREATE COLLECTION</label>
-</button>
-<input type="checkbox" id="my-modal-7" class="modal-toggle" />
+<label for="my-modal-8" class="btn">IMPORT COLLECTION</label>
+<input type="checkbox" id="my-modal-8" class="modal-toggle" />
 <div class="modal modal-bottom sm:modal-middle">
     <div class="modal-box">
-        <h3 class="font-bold text-lg">Create Collection</h3>
+        <h3 class="font-bold text-lg">Import Collection</h3>
         {#if error}
             <div class="alert alert-error shadow-lg">
                 <div>
@@ -79,8 +81,17 @@
                 </div>
             </div>
         {/if}
+        <form
+            class="form-control card w-full bg-neutral shadow-xl p-8 flex
+        justify-items-center justify-center"
+            on:submit|preventDefault={handleSubmit}
+            method="POST"
+        >
+            <InputNumber value={id} label="Collection Id" placeholder="Id"/>
+            <input type="submit" value="Import" class="btn btn-primary mt-8" />
+        </form>
         <div class="modal-action">
-            <label for="my-modal-7" class="btn">Cancel</label>
+            <label for="my-modal-8" class="btn">Cancel</label>
         </div>
     </div>
 </div>
