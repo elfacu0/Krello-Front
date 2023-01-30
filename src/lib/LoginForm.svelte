@@ -13,8 +13,14 @@
         body: JSON.stringify({ username, password }),
       });
       const data = await response.json();
-      localStorage.setItem("token", data.access_token);
-      window.location.replace("/");
+      console.log(data);
+      
+      if(data.statusCode == 401){
+        error = data.message;
+      }else{
+        localStorage.setItem("token", data.access_token);
+        window.location.replace("/");
+      }
     } catch (error) {
       console.log(error);
     }
@@ -42,7 +48,7 @@
             d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
           /></svg
         >
-        <span>Error! Task failed successfully.</span>
+        <span>Error! {error}</span>
       </div>
     </div>
   {/if}

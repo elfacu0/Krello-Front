@@ -24,10 +24,10 @@
                 }
             );
             const data = await response.json();
-            if(data.statusCode === 201){
-                success = "Collection created" + "ID = " + data.id;
-            }else{
+            if (data.statusCode !== 201) {
                 error = data.message;
+            } else {
+                success = "Collection created" + "ID = " + data.id;
             }
         } catch (err) {
             error = err.message;
