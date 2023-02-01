@@ -7,6 +7,8 @@
     import Task from "./Task.svelte";
 
     export let data: Array<ITask>;
+    export let updateTasks: () => {};
+
     let currentTask: ITask;
     const setCurrentTask = (task: ITask) => {
         currentTask = task;
@@ -15,9 +17,9 @@
 
 <div class="flex">
     <div class="flex flex-col">
-        <CreateTask /> 
+        <CreateTask {updateTasks} />
         <CreateCollection />
-        <ImportCollection />
+        <ImportCollection {updateTasks} />
     </div>
     <div id="todo" class="card shadow-xl bg-base-200">
         <h2 class="text-center">TODO</h2>
@@ -61,5 +63,5 @@
 
 <input type="checkbox" id="my-modal-4" class="modal-toggle" />
 <label for="my-modal-4" class="modal cursor-pointer">
-    <EditTask task={currentTask} />
+    <EditTask task={currentTask} {updateTasks} />
 </label>

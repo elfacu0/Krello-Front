@@ -1,11 +1,11 @@
 <script lang="ts">
-    import type { ITask } from "../interfaces/ITask";
     import Input from "./Input.svelte";
     let error: string;
     let success: string;
     let content: string;
     let status: string;
     const token: string = localStorage.getItem("token");
+    export let updateTasks: () => {};
 
     $: handleSubmit = async () => {
         try {
@@ -23,6 +23,7 @@
                 error = data.message;
             } else {
                 success = "Task created successfully";
+                updateTasks();
             }
         } catch (err) {
             error = err;

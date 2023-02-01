@@ -2,6 +2,7 @@
     import type { ITask } from "../interfaces/ITask";
     import EditInput from "./EditInput.svelte";
     export let task: ITask = { id: 0, status: null, content: null };
+    export let updateTasks: () => {};
     let error: string;
     let success: string;
     $: ({ id, content, status } = task);
@@ -33,6 +34,7 @@
                 error = data.message;
             } else {
                 success = "Task Edited Successfully";
+                updateTasks();
             }
         } catch (err) {
             error = err;
@@ -56,6 +58,7 @@
                 error = data.message;
             } else {
                 success = "Task Deleted Successfully";
+                updateTasks();
             }
         } catch (err) {
             error = err;

@@ -1,5 +1,6 @@
 <script lang="ts">
     import InputNumber from "./InputNumber.svelte";
+    export let updateTasks: () => {};
 
     const token = localStorage.getItem("token");
     let error: string;
@@ -26,6 +27,7 @@
                 error = data.message;
             } else {
                 success = "Collection Imported";
+                updateTasks();
             }
         } catch (err) {
             error = err.message;
@@ -83,7 +85,7 @@
             on:submit|preventDefault={handleSubmit}
             method="POST"
         >
-            <InputNumber value={id} label="Collection Id" placeholder="Id"/>
+            <InputNumber value={id} label="Collection Id" placeholder="Id" />
             <input type="submit" value="Import" class="btn btn-primary mt-8" />
         </form>
         <div class="modal-action">
