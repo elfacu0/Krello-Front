@@ -18,6 +18,7 @@
         error = data.message;
       } else {
         localStorage.setItem("token", data.access_token);
+        localStorage.setItem("refreshToken", data.refresh_token);
         window.location.replace("/");
       }
     } catch (err) {

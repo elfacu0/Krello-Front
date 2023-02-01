@@ -15,7 +15,7 @@
 
 <div class="flex">
     <div class="flex flex-col">
-        <CreateTask />
+        <CreateTask /> 
         <CreateCollection />
         <ImportCollection />
     </div>
