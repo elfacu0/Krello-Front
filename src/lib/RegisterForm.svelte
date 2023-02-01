@@ -14,9 +14,6 @@
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ username, email, password, confirmPassword }),
     });
-
-    console.log(JSON.stringify({ username, email, password, confirmPassword }));
-
     const data = await response.json();
     
     if (data.statusCode && data.statusCode !== 201) {
