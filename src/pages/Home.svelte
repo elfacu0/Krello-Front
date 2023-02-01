@@ -20,7 +20,7 @@
 
         if (response.ok) {
             data = await response.json();
-        }
+        }        
     });
 </script>
 

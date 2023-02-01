@@ -7,10 +7,41 @@
     import Logout from "./pages/Logout.svelte";
     import Settings from "./pages/Settings.svelte";
 
-    let token = localStorage.getItem("token");
-    let isLoggedIn: Boolean = (token !== "null");    
+    const { fetch: originalFetch } = window;
+    window.fetch = async (...args) => {
+        const [resource, config] = args;
+        const response = await originalFetch(resource, config);
 
-    $: isLoggedIn = (token !== "null");    
+        if (response.status !== 200 && response.status !== 201) {
+            const refreshToken = localStorage.getItem("refreshToken");
+            const res = await originalFetch(
+                "http://localhost:3000/auth/refresh",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        Authorization: `Bearer ${refreshToken}`,
+                    },
+                }
+            );
+            const refreshTokenData = await res.json();
+
+            if (refreshTokenData?.access_token) {
+                token = refreshTokenData.access_token;
+                localStorage.setItem("token", token);
+                config.headers["Authorization"] = token;
+            } else {
+                return Promise.reject(response);
+            }
+        }
+        return response;
+    };
+
+    let token = localStorage.getItem("token");
+
+    let isLoggedIn: Boolean = token !== null;
+
+    $: isLoggedIn = token !== null;
 </script>
 
 <body class="h-screen">

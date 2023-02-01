@@ -1,6 +1,5 @@
 <script lang="ts">
-    localStorage.setItem("token", null);
+    localStorage.removeItem("token");
+    localStorage.removeItem("refreshToken");
     window.location.replace("/");
 </script>
-
-

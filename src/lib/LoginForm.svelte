@@ -12,9 +12,9 @@
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password }),
       });
-      const data = await response.json();
+      const data = await response.json();      
 
-      if (data.statusCode && data.statusCode == 401) {
+      if (data.statusCode && data.statusCode == 401) {        
         error = data.message;
       } else {
         localStorage.setItem("token", data.access_token);

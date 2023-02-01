@@ -14,11 +14,14 @@
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ username, email, password, confirmPassword }),
     });
+
     const data = await response.json();
-    
+
     if (data.statusCode && data.statusCode !== 201) {
       error = data.message;
     } else {
+      localStorage.setItem("token", data.access_token);
+      localStorage.setItem("refreshToken", data.refresh_token);
       window.location.replace("/");
     }
   };
