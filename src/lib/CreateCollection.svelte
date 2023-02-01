@@ -3,10 +3,6 @@
     let error: string;
     let success: string;
 
-    if (token == null) {
-        window.location.replace("/");
-    }
-
     $: handleSubmit = async () => {
         error = "";
         success = "";

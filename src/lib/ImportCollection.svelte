@@ -6,10 +6,6 @@
     let success: string;
     let id: number = 1;
 
-    if (token == null) {
-        window.location.replace("/");
-    }
-
     $: handleSubmit = async () => {
         error = "";
         success = "";
