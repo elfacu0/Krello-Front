@@ -8,7 +8,7 @@
         success = "";
         try {
             const response = await fetch(
-                "http://krello.fly.dev/collections/export",
+                "https://krello.fly.dev/collections/export",
                 {
                     method: "POST",
                     headers: {

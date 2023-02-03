@@ -16,7 +16,7 @@
         error = "";
         success = "";
         try {
-            const response = await fetch("http://krello.fly.dev/users/edit", {
+            const response = await fetch("https://krello.fly.dev/users/edit", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

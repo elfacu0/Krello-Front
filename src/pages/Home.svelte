@@ -6,7 +6,7 @@
 
     const updateTasks = async()=>{
         const token: string = localStorage.getItem("token");
-        const response = await fetch("http://krello.fly.dev/users/tasks", {
+        const response = await fetch("https://krello.fly.dev/users/tasks", {
             method: "GET",
             headers: {
                 Authorization: `Bearer ${token}`,
