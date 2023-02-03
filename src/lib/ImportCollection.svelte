@@ -12,7 +12,7 @@
         success = "";
         try {
             const response = await fetch(
-                "http://localhost:3000/collections/import",
+                "http://krello.fly.dev/collections/import",
                 {
                     method: "POST",
                     headers: {

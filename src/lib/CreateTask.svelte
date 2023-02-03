@@ -9,7 +9,7 @@
 
     $: handleSubmit = async () => {
         try {
-            const response = await fetch("http://localhost:3000/tasks/create", {
+            const response = await fetch("http://krello.fly.dev/tasks/create", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

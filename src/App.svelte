@@ -15,7 +15,7 @@
         if (response.status !== 200 && response.status !== 201) {
             const refreshToken = localStorage.getItem("refreshToken");
             const res = await originalFetch(
-                "http://localhost:3000/auth/refresh",
+                "http://krello.fly.dev/auth/refresh",
                 {
                     method: "POST",
                     headers: {

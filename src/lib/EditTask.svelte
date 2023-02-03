@@ -15,7 +15,7 @@
 
     $: handleSubmit = async () => {
         try {
-            const response = await fetch("http://localhost:3000/tasks/edit", {
+            const response = await fetch("http://krello.fly.dev/tasks/edit", {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json",
@@ -43,7 +43,7 @@
 
     const deleteTask = async () => {
         try {
-            const response = await fetch("http://localhost:3000/tasks/delete", {
+            const response = await fetch("http://krello.fly.dev/tasks/delete", {
                 method: "DELETE",
                 headers: {
                     "Content-Type": "application/json",
