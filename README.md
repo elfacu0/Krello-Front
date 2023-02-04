@@ -3,7 +3,7 @@
 
 ## Description
 
-Krello is a backend project that you can use to create, manage, and share tasks.
+Krello is a [backend project](https://github.com/elfacu0/Krello-Back) that you can use to create, manage, and share tasks.
 
 This is just a basic and not so well designed Svelte interface to interact with it
 
